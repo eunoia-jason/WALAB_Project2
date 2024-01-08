@@ -20,6 +20,7 @@ public class LectureController {
         loadLecturesFromJson("files/lectureData.json");
     }
 
+    // 첫 시작 시 파일에서 강의 정보 로드
     private void loadLecturesFromJson(String filePath) {
         JSONParser parser = new JSONParser();
 
@@ -82,6 +83,7 @@ public class LectureController {
         return lectures.stream().filter(lecture -> lecture.getTitle().contains(keyword) || lecture.getLecturer().contains(keyword)).toList();
     }
 
+    // 유저 수강 신청
     public void addLectureToUser(UserModel user, LectureModel lecture) {
         UserController userController = new UserController();
 

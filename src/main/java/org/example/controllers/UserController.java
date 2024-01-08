@@ -23,6 +23,7 @@ public class UserController {
         loadUsersFromJson("files/userData.json");
     }
 
+    // 첫 시작 시 파일에서 유저 정보 로드
     private void loadUsersFromJson(String filePath) {
         JSONParser parser = new JSONParser();
 
@@ -51,6 +52,7 @@ public class UserController {
         return users.stream().anyMatch(user -> user.getEmail().equals(email));
     }
 
+    // 회원가입
     public void createUser(Long id, String email, String password, String name) {
         if (isEmailExist(email)) {
             throw new IllegalStateException("이미 존재하는 이메일입니다.");
@@ -91,12 +93,14 @@ public class UserController {
         saveUsersToJson("files/userData.json");
     }
 
+    // 현재 로그인된 유저의 수강 정보 가져오기
     public void getLectureList(UserModel user) {
         for (int i=0; i<user.getLectureList().size(); i++) {
             System.out.println((i+1) + user.getLectureList().get(i).toString());
         }
     }
 
+    // 수강 취소
     public void deleteLecture(UserModel user, int input) {
         LectureController lectureController = new LectureController();
 
@@ -110,6 +114,7 @@ public class UserController {
         }
     }
 
+    // 수강 중인 강의 검색
     public List<LectureModel> searchLectures(UserModel user, String keyword) {
         return user.getLectureList().stream().filter(lecture -> lecture.getTitle().contains(keyword) || lecture.getLecturer().contains(keyword)).toList();
     }

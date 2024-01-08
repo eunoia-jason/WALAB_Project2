@@ -20,6 +20,7 @@ public class UserView {
         this.id = (long) (userController.getUsers().size());
     }
 
+    // 로그인
     public UserModel login() {
         System.out.println("======= 로그인 =======");
         System.out.print("이메일: ");
@@ -41,6 +42,7 @@ public class UserView {
         }
     }
 
+    // 회원가입
     public void createUser() {
         System.out.println("======= 회원 가입 =======");
         System.out.print("이메일: ");
@@ -61,6 +63,7 @@ public class UserView {
         System.out.println("====================");
     }
 
+    // 회원 탈퇴
     public void removeUser() {
         System.out.println("======= 회원 탈퇴 =======");
         System.out.print("이메일: ");
@@ -73,6 +76,7 @@ public class UserView {
         System.out.println("====================");
     }
 
+    // 전체 유저 정보 로드
     public void listAllUsers() {
         System.out.println("======= 회원 목록 =======");
         userController.listAllUsers().forEach(user ->
@@ -80,6 +84,7 @@ public class UserView {
         System.out.println("=======================");
     }
 
+    // 회원 정보 수정
     public void updateUserInfo(UserModel user) {
         System.out.println("======= 정보 수정 =======");
         System.out.println("정보 수정을 위해 새로운 정보를 입력해주세요. 변경하지 않을 항목은 엔터를 눌러 넘어가세요.");
@@ -95,12 +100,14 @@ public class UserView {
         System.out.println("====================");
     }
 
+    // 현재 로그인된 유저의 수강 정보 가져오기
     public void getLectureList(UserModel user) {
         System.out.println("======= 수강 목록 =======");
         userController.getLectureList(user);
         System.out.println("=======================");
     }
 
+    // 수강 취소
     public void deleteLecture(UserModel user) {
         System.out.println("======= 수강 취소 =======");
         userController.getLectureList(user);
@@ -111,6 +118,7 @@ public class UserView {
         userController.deleteLecture(user, input);
     }
 
+    // 수강 중인 강의 검색
     public void searchLecture(UserModel user) {
         System.out.print("검색할 강의명 or 강사를 입력해 주세요: ");
         String keyword = in.nextLine();

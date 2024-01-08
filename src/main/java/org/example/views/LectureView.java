@@ -103,6 +103,7 @@ public class LectureView {
         System.out.println("=======================\n");
     }
 
+    // 현재 로그인된 유저 수강 신청
     public void addLectureToUser(UserModel user) {
         ArrayList<LectureModel> lectures = lectureController.listAllLectures();
 
