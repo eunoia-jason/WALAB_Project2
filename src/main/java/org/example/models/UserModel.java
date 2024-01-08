@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserModel {
-    private int id;
+    private Long id;
     private String email;
     private String password;
     private String name;
@@ -21,7 +21,7 @@ public class UserModel {
     private String recentLoginDate;
 
     public UserModel(
-            int id,
+            Long id,
             String email,
             String password,
             String name

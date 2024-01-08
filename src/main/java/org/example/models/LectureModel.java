@@ -8,11 +8,12 @@ import java.time.format.DateTimeFormatter;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class LectureModel {
     private String title;
     private String lecturer;
     private String category;
-    private int count;
+    private Long count;
     private String regDate;
 
     public LectureModel(String title, String lecturer, String category) {
@@ -20,7 +21,7 @@ public class LectureModel {
         this.lecturer = lecturer;
         this.category = category;
 
-        this.count = 0;
+        this.count = 0L;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         this.regDate = LocalDateTime.now().format(formatter);
     }

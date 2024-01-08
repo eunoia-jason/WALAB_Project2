@@ -118,7 +118,6 @@ public class LectureView {
             LectureModel selectedLecture = lectureController.listAllLectures().get(input - 1);
 
             lectureController.addLectureToUser(user, selectedLecture);
-            System.out.println("강의가 추가되었습니다.");
         } catch (IllegalArgumentException | IndexOutOfBoundsException e) {
             System.out.println("잘못된 입력입니다. 다시 시도해주세요.");
         }

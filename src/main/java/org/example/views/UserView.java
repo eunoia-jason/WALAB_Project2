@@ -10,13 +10,14 @@ import java.util.List;
 import java.util.Scanner;
 
 public class UserView {
-    private static int id = 0;
+    private Long id;
     private final Scanner in;
     private final UserController userController;
 
     public UserView(Scanner in, UserController userController) {
         this.in = in;
         this.userController = userController;
+        this.id = (long) (userController.getUsers().size());
     }
 
     public UserModel login() {
