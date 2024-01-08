@@ -45,3 +45,6 @@
 <img width="713" alt="image" src="https://github.com/eunoia-jason/WALAB_Project2/assets/62330979/fde14202-c064-47dd-99e6-8533150e52bc">
 <img width="718" alt="image" src="https://github.com/eunoia-jason/WALAB_Project2/assets/62330979/a44c40ab-1ccc-439b-86cd-5f176a9edd04">
 <img width="710" alt="image" src="https://github.com/eunoia-jason/WALAB_Project2/assets/62330979/9e38044f-a25c-489c-838b-3eba0c5e4299">
+<img width="712" alt="image" src="https://github.com/eunoia-jason/WALAB_Project2/assets/62330979/fcb0b9dd-10fd-4584-9719-1b20bcf1db75">
+<img width="553" alt="image" src="https://github.com/eunoia-jason/WALAB_Project2/assets/62330979/4f9211d3-66b3-462e-af3d-a3f8480c5b3a">
+<img width="372" alt="image" src="https://github.com/eunoia-jason/WALAB_Project2/assets/62330979/3f738873-f925-4711-9ee4-5026ad1f7f57">
