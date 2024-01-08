@@ -2,6 +2,7 @@ package org.example.views;
 
 import org.example.controllers.LectureController;
 import org.example.models.LectureModel;
+import org.example.models.UserModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -104,14 +105,17 @@ public class LectureView {
         System.out.println("======================\n");
     }
 
-    // 별점순으로 검색
-    public void sortLectures() {
-        List<LectureModel> lectures = lectureController.sortLectures();
+    public void addLectureToUser(UserModel user) {
+        System.out.print("강의의 번호를 입력하세요: ");
+        String input = in.nextLine();
 
-        System.out.println("======= 강의 목록 =======");
-        for (int i=0; i<lectures.size(); i++) {
-            System.out.println((i+1) + lectures.get(i).toString());
+        try {
+            LectureModel selectedLecture = lectureController.listAllLectures().get(Integer.parseInt(input) - 1);
+
+            lectureController.addLectureToUser(user, selectedLecture);
+            System.out.println("강의가 추가되었습니다.");
+        } catch (IllegalArgumentException | ArrayIndexOutOfBoundsException e) {
+            System.out.println("잘못된 입력입니다. 다시 시도해주세요.");
         }
-        System.out.println("======================\n");
     }
 }

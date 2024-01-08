@@ -1,9 +1,9 @@
 package org.example.controllers;
 
 import org.example.models.LectureModel;
+import org.example.models.UserModel;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class LectureController {
@@ -43,12 +43,11 @@ public class LectureController {
     }
 
     // parameter의 강의명이 포함된 강의 검색
-    public List<LectureModel> searchLectures(String title) {
-        return lectures.stream().filter(lecture -> lecture.getTitle().contains(title)).toList();
+    public List<LectureModel> searchLectures(String keyword) {
+        return lectures.stream().filter(lecture -> lecture.getTitle().contains(keyword) || lecture.getLecturer().contains(keyword)).toList();
     }
 
-    // 별점이 높은 순서대로 강의 검색
-    public List<LectureModel> sortLectures() {
-        return lectures.stream().sorted(Comparator.comparing(LectureModel::getStars).reversed()).toList();
+    public void addLectureToUser(UserModel user, LectureModel lecture) {
+        user.getLectureList().add(lecture);
     }
 }
