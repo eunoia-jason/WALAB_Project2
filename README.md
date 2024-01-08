@@ -21,7 +21,7 @@
     LectureView: 강의 정보를 출력합니다.
   
 ### 라이브러리
-- Lombok: Java 클래스의 보일러플레이트 코드를 줄이기 위해 사용합니다.(getter, setter, constructor)
+- Lombok: Java 클래스의 보일러플레이트 코드를 줄이기 위해 사용합니다.(getter, setter, constructor)
 - json-simple: JSON 데이터 포맷을 사용하여 데이터를 읽고 쓰는 기능을 구현하는 데 사용합니다.
 
 ### 데이터 저장 포맷
