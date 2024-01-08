@@ -9,16 +9,16 @@
 
 ### 클래스
 - main
-    Main: 프로그램의 시작점, 로그인 전, 관리자 모드, 일반 유저 모드의 흐름을 제어합니다.
+    - Main: 프로그램의 시작점, 로그인 전, 관리자 모드, 일반 유저 모드의 흐름을 제어합니다.
 - models
-    UserModel: 사용자 정보의 schema를 정의합니다.
-    LectureModel: 강의 정보의 schema를 정의합니다.
-- controllers
-    UserController: 사용자 정보(수강 정보)를 관리합니다.
-    LectureController: 강의 정보를 관리합니다.
+    - UserModel: 사용자 정보의 schema를 정의합니다.
+    - LectureModel: 강의 정보의 schema를 정의합니다.
+- controllers
+    - UserController: 사용자 정보(수강 정보)를 관리합니다.
+    - LectureController: 강의 정보를 관리합니다.
 - views
-    UserView: 사용자 정보를 출력합니다.
-    LectureView: 강의 정보를 출력합니다.
+    - UserView: 사용자 정보를 출력합니다.
+    - LectureView: 강의 정보를 출력합니다.
   
 ### 라이브러리
 - Lombok: Java 클래스의 보일러플레이트 코드를 줄이기 위해 사용합니다.(getter, setter, constructor)
