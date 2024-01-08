@@ -42,7 +42,7 @@ public class LectureController {
         lectures.remove(id-1);
     }
 
-    // parameter의 강의명이 포함된 강의 검색
+    // parameter의 강의명 or 강사가 포함된 강의 검색
     public List<LectureModel> searchLectures(String keyword) {
         return lectures.stream().filter(lecture -> lecture.getTitle().contains(keyword) || lecture.getLecturer().contains(keyword)).toList();
     }

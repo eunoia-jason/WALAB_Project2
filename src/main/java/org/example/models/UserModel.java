@@ -36,4 +36,10 @@ public class UserModel {
         this.regDate = LocalDateTime.now().format(formatter);
         this.recentLoginDate = LocalDateTime.now().format(formatter);
     }
+
+    @Override
+    // Object를 String으로 변환 시 출력할 문자열 정의
+    public String toString() {
+        return "이메일: " + getEmail() + "\n이름: " + getName() + "\n가입일: " + getRegDate() + "\n최근 로그인: " + getRecentLoginDate();
+    }
 }

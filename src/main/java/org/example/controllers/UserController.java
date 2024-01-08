@@ -1,5 +1,6 @@
 package org.example.controllers;
 
+import org.example.models.LectureModel;
 import org.example.models.UserModel;
 
 import java.util.ArrayList;
@@ -48,5 +49,25 @@ public class UserController {
             if (password != null && !password.isEmpty()) user.setPassword(password);
             if (name != null && !name.isEmpty()) user.setName(name);
         }
+    }
+
+    public void getLectureList(UserModel user) {
+        for (int i=0; i<user.getLectureList().size(); i++) {
+            System.out.println((i+1) + user.getLectureList().get(i).toString());
+        }
+    }
+
+    public void deleteLecture(UserModel user, int input) {
+        try {
+            user.getLectureList().remove(input - 1);
+
+            System.out.println("강의가 삭제되었습니다.");
+        } catch (IllegalArgumentException | IndexOutOfBoundsException e) {
+            System.out.println("잘못된 입력입니다. 다시 시도해주세요.");
+        }
+    }
+
+    public List<LectureModel> searchLectures(UserModel user, String keyword) {
+        return user.getLectureList().stream().filter(lecture -> lecture.getTitle().contains(keyword) || lecture.getLecturer().contains(keyword)).toList();
     }
 }

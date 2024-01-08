@@ -93,10 +93,10 @@ public class LectureView {
 
     // 강의명으로 검색
     public void searchLectures() {
-        System.out.print("검색할 강의명을 입력해 주세요: ");
-        String title = in.nextLine();
+        System.out.print("검색할 강의명 or 강사를 입력해 주세요: ");
+        String keyword = in.nextLine();
 
-        List<LectureModel> lectures = lectureController.searchLectures(title);
+        List<LectureModel> lectures = lectureController.searchLectures(keyword);
 
         System.out.println("======= 강의 목록 =======");
         for (int i=0; i<lectures.size(); i++) {
@@ -106,15 +106,22 @@ public class LectureView {
     }
 
     public void addLectureToUser(UserModel user) {
+        ArrayList<LectureModel> lectures = lectureController.listAllLectures();
+
+        System.out.println("======= 강의 목록 =======");
+        for (int i=0; i<lectures.size(); i++) {
+            System.out.println((i+1) + lectures.get(i).toString());
+        }
+        System.out.println("======================\n");
         System.out.print("강의의 번호를 입력하세요: ");
-        String input = in.nextLine();
+        int input = in.nextInt();
 
         try {
-            LectureModel selectedLecture = lectureController.listAllLectures().get(Integer.parseInt(input) - 1);
+            LectureModel selectedLecture = lectureController.listAllLectures().get(input - 1);
 
             lectureController.addLectureToUser(user, selectedLecture);
             System.out.println("강의가 추가되었습니다.");
-        } catch (IllegalArgumentException | ArrayIndexOutOfBoundsException e) {
+        } catch (IllegalArgumentException | IndexOutOfBoundsException e) {
             System.out.println("잘못된 입력입니다. 다시 시도해주세요.");
         }
     }

@@ -37,23 +37,26 @@ public class Main {
                     default -> System.out.println("다시 입력해 주세요.");
                 }
             } else {
-                System.out.println("[1]수강 신청 [2]수강 목록 [3]수강 강의 검색 [4]회원정보 수정 [5]로그아웃 [6]회원 탈퇴");
+                System.out.println("[1]수강 신청 [2]수강 목록 [3]수강 강의 검색 [4]수강 취소 [5]회원정보 [6]회원정보 수정 [7]로그아웃 [8]회원 탈퇴");
                 int choice = in.nextInt();
                 in.nextLine();
 
                 switch (choice) {
                     case 1 -> lectureView.addLectureToUser(loggedInUser);
-                    case 5 -> {
+                    case 2 -> userView.getLectureList(loggedInUser);
+                    case 3 -> userView.searchLecture(loggedInUser);
+                    case 4 -> userView.deleteLecture(loggedInUser);
+                    case 5 -> System.out.println(loggedInUser);
+                    case 6 -> userView.updateUserInfo(loggedInUser);
+                    case 7 -> {
                         loggedInUser = null;
-                        System.out.println("-----로그아웃 되었습니다.-----");
-                        System.out.println("-------------------------");
+                        System.out.println("===== 로그아웃 되었습니다 =====");
                     }
-                    case 6 -> {
+                    case 8 -> {
                         userView.removeUser();
                         loggedInUser = null;
-                        System.out.println("-----회원탈퇴 되었습니다.-----");
-                        System.out.println("-------------------------");
                     }
+                    default -> System.out.println("다시 입력해 주세요.");
                 }
             }
         }

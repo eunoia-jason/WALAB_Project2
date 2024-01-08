@@ -1,10 +1,12 @@
 package org.example.views;
 
 import org.example.controllers.UserController;
+import org.example.models.LectureModel;
 import org.example.models.UserModel;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserView {
@@ -92,4 +94,33 @@ public class UserView {
         System.out.println("====================");
     }
 
+    public void getLectureList(UserModel user) {
+        System.out.println("======= 수강 목록 =======");
+        userController.getLectureList(user);
+        System.out.println("=======================");
+    }
+
+    public void deleteLecture(UserModel user) {
+        System.out.println("======= 수강 취소 =======");
+        System.out.println("======= 수강 목록 =======");
+        userController.getLectureList(user);
+        System.out.println("=======================");
+        System.out.print("취소할 강의의 번호를 입력하세요: ");
+        int input = in.nextInt();
+
+        userController.deleteLecture(user, input);
+    }
+
+    public void searchLecture(UserModel user) {
+        System.out.print("검색할 강의명 or 강사를 입력해 주세요: ");
+        String keyword = in.nextLine();
+
+        List<LectureModel> lectures = userController.searchLectures(user, keyword);
+
+        System.out.println("======= 수강 목록 =======");
+        for (int i=0; i<lectures.size(); i++) {
+            System.out.println((i+1) + lectures.get(i).toString());
+        }
+        System.out.println("======================\n");
+    }
 }
