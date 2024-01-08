@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class UserView {
-    private static int id = 1;
+    private static int id = 0;
     private final Scanner in;
     private final UserController userController;
 
@@ -75,8 +75,8 @@ public class UserView {
     public void listAllUsers() {
         System.out.println("======= 회원 목록 =======");
         userController.listAllUsers().forEach(user ->
-                System.out.println(user.getId() + ". " + "이메일: " + user.getEmail() + "  이름: " + user.getName()));
-        System.out.println("====================");
+                System.out.println(user.getId() + ". " + "이메일: " + user.getEmail() + "  이름: " + user.getName() + "  가입일: " + user.getRegDate() + "  최근 로그인: " + user.getRecentLoginDate()));
+        System.out.println("=======================");
     }
 
     public void updateUserInfo(UserModel user) {
@@ -102,7 +102,6 @@ public class UserView {
 
     public void deleteLecture(UserModel user) {
         System.out.println("======= 수강 취소 =======");
-        System.out.println("======= 수강 목록 =======");
         userController.getLectureList(user);
         System.out.println("=======================");
         System.out.print("취소할 강의의 번호를 입력하세요: ");
@@ -121,6 +120,6 @@ public class UserView {
         for (int i=0; i<lectures.size(); i++) {
             System.out.println((i+1) + lectures.get(i).toString());
         }
-        System.out.println("======================\n");
+        System.out.println("=======================\n");
     }
 }

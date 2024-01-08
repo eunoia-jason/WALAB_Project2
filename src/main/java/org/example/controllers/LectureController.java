@@ -20,8 +20,8 @@ public class LectureController {
     }
 
     // 입력받은 정보 강의 생성
-    public void createLecture(String title, String lecturer, String tag, double stars) {
-        LectureModel newLecture = new LectureModel(title, lecturer, tag, stars);
+    public void createLecture(String title, String lecturer, String category) {
+        LectureModel newLecture = new LectureModel(title, lecturer, category);
         lectures.add(newLecture);
     }
 
@@ -49,5 +49,6 @@ public class LectureController {
 
     public void addLectureToUser(UserModel user, LectureModel lecture) {
         user.getLectureList().add(lecture);
+        lecture.setCount(lecture.getCount() + 1);
     }
 }

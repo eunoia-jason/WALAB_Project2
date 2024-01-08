@@ -32,10 +32,8 @@ public class LectureView {
         String lecturer = in.nextLine();
         System.out.print("카테고리: ");
         String category = in.nextLine();
-        System.out.print("별점: ");
-        double stars = in.nextDouble();
 
-        lectureController.createLecture(title, lecturer, category, stars);
+        lectureController.createLecture(title, lecturer, category);
         System.out.println("======= 강의 등록 완료 =======\n");
     }
 
@@ -47,7 +45,7 @@ public class LectureView {
         for (int i=0; i<lectures.size(); i++) {
             System.out.println((i+1) + lectures.get(i).toString());
         }
-        System.out.println("======================\n");
+        System.out.println("=======================\n");
     }
 
     // 강의 정보 업데이트
@@ -102,7 +100,7 @@ public class LectureView {
         for (int i=0; i<lectures.size(); i++) {
             System.out.println((i+1) + lectures.get(i).toString());
         }
-        System.out.println("======================\n");
+        System.out.println("=======================\n");
     }
 
     public void addLectureToUser(UserModel user) {
@@ -112,7 +110,7 @@ public class LectureView {
         for (int i=0; i<lectures.size(); i++) {
             System.out.println((i+1) + lectures.get(i).toString());
         }
-        System.out.println("======================\n");
+        System.out.println("=======================\n");
         System.out.print("강의의 번호를 입력하세요: ");
         int input = in.nextInt();
 

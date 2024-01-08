@@ -61,7 +61,7 @@ public class UserController {
         try {
             user.getLectureList().remove(input - 1);
 
-            System.out.println("강의가 삭제되었습니다.");
+            System.out.println("수강이 취소되었습니다.");
         } catch (IllegalArgumentException | IndexOutOfBoundsException e) {
             System.out.println("잘못된 입력입니다. 다시 시도해주세요.");
         }
