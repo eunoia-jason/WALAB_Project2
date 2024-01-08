@@ -83,12 +83,16 @@ public class LectureController {
     }
 
     public void addLectureToUser(UserModel user, LectureModel lecture) {
+        UserController userController = new UserController();
+
         if (user.getLectureList().stream().anyMatch(item -> item == lecture)) {
             System.out.println("이미 수강신청된 강의입니다.");
             return;
         }
         user.getLectureList().add(lecture);
         lecture.setCount(lecture.getCount() + 1);
+        saveLecturesToJson("files/lectureData.json");
+        userController.saveUsersToJson("files/userData.json");
         System.out.println("강의가 추가되었습니다.");
     }
 
