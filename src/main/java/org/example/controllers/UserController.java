@@ -6,7 +6,6 @@ import org.example.models.UserModel;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -65,8 +64,9 @@ public class UserController {
     }
 
     // 유저 삭제
-    public void removeUser(String email, String password) {
-        users.removeIf(user -> user.getEmail().equals(email) && user.getPassword().equals(password));
+    public void removeUser(UserModel user, String email, String password) {
+        user.getLectureList().forEach(lecture -> lecture.setCount(lecture.getCount()-1));
+        users.removeIf(item -> item.getEmail().equals(email) && item.getPassword().equals(password));
         saveUsersToJson("files/userData.json");
     }
 
@@ -105,6 +105,7 @@ public class UserController {
         LectureController lectureController = new LectureController();
 
         try {
+            lectureController.listAllLectures().get(input - 1).setCount(lectureController.listAllLectures().get(input - 1).getCount() - 1);
             user.getLectureList().remove(input - 1);
             saveUsersToJson("files/userData.json");
             lectureController.saveLecturesToJson("files/lectureData.json");

@@ -72,7 +72,7 @@ public class Main {
                             System.out.println("===== 로그아웃 되었습니다 =====");
                         }
                         case 8 -> {
-                            userView.removeUser();
+                            userView.removeUser(loggedInUser);
                             loggedInUser = null;
                         }
                         default -> System.out.println("다시 입력해 주세요.");

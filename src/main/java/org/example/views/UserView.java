@@ -64,14 +64,14 @@ public class UserView {
     }
 
     // 회원 탈퇴
-    public void removeUser() {
+    public void removeUser(UserModel user) {
         System.out.println("======= 회원 탈퇴 =======");
         System.out.print("이메일: ");
         String email = in.nextLine();
         System.out.print("비밀번호(입력 시 정보가 삭제됩니다.): ");
         String password = in.nextLine();
 
-        userController.removeUser(email, password);
+        userController.removeUser(user, email, password);
         System.out.println("탈퇴되었습니다.");
         System.out.println("====================");
     }
